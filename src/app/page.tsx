@@ -93,7 +93,13 @@ export default function WaveDashboard() {
 
   const handleGoogleLogin = async () => {
     setLoading(true);
-    await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin }});
+    // This magically grabs whatever URL you are currently on!
+    const currentUrl = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
+    
+    await supabase.auth.signInWithOAuth({ 
+      provider: 'google', 
+      options: { redirectTo: currentUrl }
+    });
     setLoading(false);
   };
 

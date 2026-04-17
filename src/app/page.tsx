@@ -94,7 +94,7 @@ export default function WaveDashboard() {
   const handleGoogleLogin = async () => {
     setLoading(true);
     // This magically grabs whatever URL you are currently on!
-    const currentUrl = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
+    const currentUrl = typeof window !== 'undefined' ? window.location.origin : 'https://wave-api-2h7m.onrender.com"';
     
     await supabase.auth.signInWithOAuth({ 
       provider: 'google', 
